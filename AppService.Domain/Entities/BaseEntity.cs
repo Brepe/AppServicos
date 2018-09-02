@@ -8,6 +8,6 @@ namespace AppService.Domain.Entities
 {
     public class BaseEntity
     {
-
+      
     }
 }
