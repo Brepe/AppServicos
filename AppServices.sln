@@ -13,7 +13,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{D8A8294F-1E6F-4E3A-9F92-8242899C5A23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppService.Domain", "AppService.Domain\AppService.Domain.csproj", "{081CB328-069A-4284-8DF5-836F93072FAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppService.Domain", "AppService.Domain\AppService.Domain.csproj", "{081CB328-069A-4284-8DF5-836F93072FAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppService.Infrastructure.SQLServer", "AppService.Infrastructure.SQLServer\AppService.Infrastructure.SQLServer.csproj", "{39A3CFFA-D369-4AE5-91A8-B6B49DB4A238}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,12 +27,17 @@ Global
 		{081CB328-069A-4284-8DF5-836F93072FAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{081CB328-069A-4284-8DF5-836F93072FAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{081CB328-069A-4284-8DF5-836F93072FAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39A3CFFA-D369-4AE5-91A8-B6B49DB4A238}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39A3CFFA-D369-4AE5-91A8-B6B49DB4A238}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39A3CFFA-D369-4AE5-91A8-B6B49DB4A238}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39A3CFFA-D369-4AE5-91A8-B6B49DB4A238}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{081CB328-069A-4284-8DF5-836F93072FAB} = {103B5CB3-F070-4E22-85FB-08FA601A6557}
+		{39A3CFFA-D369-4AE5-91A8-B6B49DB4A238} = {D8A8294F-1E6F-4E3A-9F92-8242899C5A23}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B0674FF4-BB70-495F-BF12-EED9AD46EAA1}
