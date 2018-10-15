@@ -3,7 +3,8 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
+
   <ItemGroup>
-    <Folder Include="Entities\" />
+    <PackageReference Include="GianLuca.Domain.Core" Version="1.0.0" />
   </ItemGroup>
 </Project>
