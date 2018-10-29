@@ -10,9 +10,11 @@
            VerticalOptions="CenterAndExpand" />
             <Entry x:Name="mail" Placeholder="E-mail" />
             <Entry  x:Name="pass" IsPassword="true" Placeholder="Senha" />
-                <Entry  x:Name="passRe" IsPassword="true" Placeholder="Repetir Senha" />
-                <Entry x:Name="cpf" Placeholder="CPF/CNPJ" />
+            <Entry  x:Name="passRe" IsPassword="true" Placeholder="Repetir Senha" />
+            <Entry x:Name="cpf" Placeholder="CPF/CNPJ" />
             <Entry x:Name="nome" Placeholder="Nome" />
+            <Entry x:Name="telefone" Placeholder="Telefone (00)0000-0000" />
+
             <Picker x:Name="myPicker" Title="Selecione sua região" ItemDisplayBinding="{Binding RetailerName}" />
 
 
@@ -27,28 +29,43 @@
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
                         <RowDefinition Height="*" />
 
                     </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+
                 </Grid.ColumnDefinitions>
                     <Slider Maximum="60" Minimum="10"  Value="20" ValueChanged="OnSliderValueChanged"
-                             Grid.Row="0" Grid.Column="0" />
+                             Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
                     <Label x:Name="Resp1" Text="Preço por hora (garçom): 20"  VerticalOptions="CenterAndExpand" 
-                           Grid.Row="0" Grid.Column="1" />
+                           Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2"/>
 
                     <Slider  Maximum="60" Minimum="10" Value="20" ValueChanged="OnSliderValueChanged2" 
-                             Grid.Row="1" Grid.Column="0" />
+                             Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
                     <Label x:Name="Resp2" Text="Preço por hora (fritadeira): 20"   VerticalOptions="CenterAndExpand" 
-                           Grid.Row="1" Grid.Column="1" />
+                           Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2"/>
 
                     <Slider Maximum="60" Minimum="10" Value="20" ValueChanged="OnSliderValueChanged3"  
-                             Grid.Row="2" Grid.Column="0" />
+                             Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"/>
                     <Label x:Name="Resp3" Text="Preço por hora (copeira): 20"  VerticalOptions="CenterAndExpand"  
-                             Grid.Row="2" Grid.Column="1" />
+                             Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"/>
+                  
+                    <Label Text="Possuem uniforme?"  VerticalOptions="CenterAndExpand"  
+                             Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" />
+                    <Slider x:Name="uniSlider" Maximum="1" Minimum="0" Value="0" ValueChanged="OnSliderValueChanged4"  
+                             Grid.Row="3" Grid.Column="2" />
+                    <Label x:Name="uni" Text="Não"  VerticalOptions="CenterAndExpand"  
+                             Grid.Row="3" Grid.Column="3" />
+                
+                    <Picker Grid.Row="4" Grid.ColumnSpan="4" x:Name="myPicker2" Title="Material" ItemDisplayBinding="{Binding RetailerName}" />
+
                 </Grid>
             <Button x:Name="btLogin" Text="Cadastrar"
                 VerticalOptions="CenterAndExpand"

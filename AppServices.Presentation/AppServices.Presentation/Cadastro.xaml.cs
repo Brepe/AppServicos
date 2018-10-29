@@ -22,6 +22,10 @@ namespace AppServices.Presentation
             myPicker.Items.Add("Região 3");
             myPicker.Items.Add("Região 4");
 
+            myPicker2.Items.Add("Região 1");
+            myPicker2.Items.Add("Região 2");
+            myPicker2.Items.Add("Região 3");
+            myPicker2.Items.Add("Região 4");
             //await Navigation.PopAsync();
         }
         async void OnButtonClicked3(object sender, EventArgs args)
@@ -44,6 +48,20 @@ namespace AppServices.Presentation
         {
             double value = args.NewValue;
             Resp3.Text = String.Format("Preço por hora (copeira): {0}", value);
+        }
+
+        void OnSliderValueChanged4(object sender, ValueChangedEventArgs args)
+        {
+            double value = args.NewValue;
+            if (value == 0){
+                uni.Text = String.Format("Não");
+            }
+            else
+            {
+                uniSlider.Value = 1;
+                uni.Text = String.Format("Sim");
+            }
+            
         }
     }
 }
