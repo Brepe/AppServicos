@@ -17,40 +17,49 @@ namespace AppServices.Presentation
 		{
 
             InitializeComponent();
-            myPicker.Items.Add("Região 1");
-            myPicker.Items.Add("Região 2");
-            myPicker.Items.Add("Região 3");
-            myPicker.Items.Add("Região 4");
+            pRegiao.Items.Add("Região 1");
+            pRegiao.Items.Add("Região 2");
+            pRegiao.Items.Add("Região 3");
+            pRegiao.Items.Add("Região 4");
 
-            myPicker2.Items.Add("Região 1");
-            myPicker2.Items.Add("Região 2");
-            myPicker2.Items.Add("Região 3");
-            myPicker2.Items.Add("Região 4");
+            pMaterial.Items.Add("Região 1");
+            pMaterial.Items.Add("Região 2");
+            pMaterial.Items.Add("Região 3");
+            pMaterial.Items.Add("Região 4");
             //await Navigation.PopAsync();
+            svGarcom.SetValue(IsVisibleProperty, false);
+            svFrita.SetValue(IsVisibleProperty, false);
+            svCopeira.SetValue(IsVisibleProperty, false);
+            vGarcom.SetValue(IsVisibleProperty, false);
+            vFrita.SetValue(IsVisibleProperty, false);
+            vCopeira.SetValue(IsVisibleProperty, false);
         }
-        async void OnButtonClicked3(object sender, EventArgs args)
+
+        async void OnButtonClicked(object sender, EventArgs args)
         {
 
             await Navigation.PushAsync(new MainPage());
         }
 
-        void OnSliderValueChanged(object sender, ValueChangedEventArgs args)
+        // ---------------Para exibir os valores escolhidos no slider-------------------- //
+
+        void ExibeGarcom(object sender, ValueChangedEventArgs args)
         {
             double value = args.NewValue;
-            Resp1.Text = String.Format("Preço por hora (garçom): {0}", value);
+            vGarcom.Text = String.Format("Preço por hora (garçom): {0}", value);
         }
-        void OnSliderValueChanged2(object sender, ValueChangedEventArgs args)
+        void ExibeFrita(object sender, ValueChangedEventArgs args)
         {
             double value = args.NewValue;
-            Resp2.Text = String.Format("Preço por hora (fritadeira): {0}", value);
+            vFrita.Text = String.Format("Preço por hora (fritadeira): {0}", value);
         }
-        void OnSliderValueChanged3(object sender, ValueChangedEventArgs args)
+        void ExibeCopeiro(object sender, ValueChangedEventArgs args)
         {
             double value = args.NewValue;
-            Resp3.Text = String.Format("Preço por hora (copeira): {0}", value);
+            vCopeira.Text = String.Format("Preço por hora (copeira): {0}", value);
         }
 
-        void OnSliderValueChanged4(object sender, ValueChangedEventArgs args)
+        void OnSliderValueChanged(object sender, ValueChangedEventArgs args)
         {
             double value = args.NewValue;
             if (value == 0){
@@ -61,7 +70,76 @@ namespace AppServices.Presentation
                 uniSlider.Value = 1;
                 uni.Text = String.Format("Sim");
             }
-            
+
         }
+
+        // --------------Para exibir os slider somente se for preenchida qtd------------ //
+
+        void HideandShowSlider(object sender, TextChangedEventArgs e)
+        {
+            String value = e.NewTextValue;
+            if (value.Trim() != "")
+            {
+                svGarcom.SetValue(IsVisibleProperty, true);
+                vGarcom.SetValue(IsVisibleProperty, true);
+
+            }
+            else
+            {
+                svGarcom.SetValue(IsVisibleProperty, false);
+                vGarcom.SetValue(IsVisibleProperty, false);
+
+            }
+        }
+        void HideandShowSlider2(object sender, TextChangedEventArgs e)
+        {
+            String value = e.NewTextValue;
+            if (value.Trim() != "")
+            {
+                svFrita.SetValue(IsVisibleProperty, true);
+                vFrita.SetValue(IsVisibleProperty, true);
+
+            }
+            else
+            {
+                svFrita.SetValue(IsVisibleProperty, false);
+                vFrita.SetValue(IsVisibleProperty, false);
+
+            }
+
+        }
+        void HideandShowSlider3(object sender, TextChangedEventArgs e)
+        {
+            String value = e.NewTextValue;
+            if (value.Trim() != "")
+            {
+                svCopeira.SetValue(IsVisibleProperty, true);
+                vCopeira.SetValue(IsVisibleProperty, true);
+
+            }
+            else
+            {
+                svCopeira.SetValue(IsVisibleProperty, false);
+                vCopeira.SetValue(IsVisibleProperty, false);
+
+            }
+
+        }
+
+        // --------------------------- Confirmar senha ----------------------------------//
+        void ConfirmarSenha(object sender, TextChangedEventArgs e)
+        {
+            if (passRe.Text != pass.Text)
+            {
+                passRe.BackgroundColor = Color.FromHex("#e09a9a");
+
+            }
+            else
+            {
+                passRe.BackgroundColor = Color.FromHex("#ffffff");
+
+            }
+        }
+
     }
 }

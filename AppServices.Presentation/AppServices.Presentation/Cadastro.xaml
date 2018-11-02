@@ -8,22 +8,22 @@
             <Label x:Name="label" Text="Cadastro de prestador de serviço" 
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" />
-            <Entry x:Name="mail" Placeholder="E-mail" />
-            <Entry  x:Name="pass" IsPassword="true" Placeholder="Senha" />
-            <Entry  x:Name="passRe" IsPassword="true" Placeholder="Repetir Senha" />
+                <Entry x:Name="mail" Placeholder="E-mail" />
+                <Entry  x:Name="pass" IsPassword="true" Placeholder="Senha" TextChanged="ConfirmarSenha"/>
+                <Entry  x:Name="passRe" IsPassword="true" Placeholder="Repetir Senha" TextChanged="ConfirmarSenha" />
             <Entry x:Name="cpf" Placeholder="CPF/CNPJ" />
             <Entry x:Name="nome" Placeholder="Nome" />
             <Entry x:Name="telefone" Placeholder="Telefone (00)0000-0000" />
 
-            <Picker x:Name="myPicker" Title="Selecione sua região" ItemDisplayBinding="{Binding RetailerName}" />
+            <Picker x:Name="pRegiao" Title="Selecione sua região" ItemDisplayBinding="{Binding RetailerName}" />
 
 
             <StackLayout 
                 VerticalOptions="CenterAndExpand"
                   HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
-                    <Entry x:Name="qgarcom" HorizontalOptions="FillAndExpand" Keyboard="Numeric"  Placeholder="Qtd de garçons" />
-                    <Entry x:Name="qfritadeira" HorizontalOptions="FillAndExpand" Keyboard="Numeric"  Placeholder="Qtd de fritadeiras" />
-                    <Entry x:Name="qcopeira" HorizontalOptions="FillAndExpand" Keyboard="Numeric"  Placeholder="Qtd de copeiras" />
+                    <Entry x:Name="qgarcom" HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="HideandShowSlider" Placeholder="Qtd de garçons" />
+                    <Entry x:Name="qfritadeira" HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="HideandShowSlider2" Placeholder="Qtd de fritadeiras" />
+                    <Entry x:Name="qcopeira" HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="HideandShowSlider3" Placeholder="Qtd de copeiras" />
                 </StackLayout >
 
                 <Grid>
@@ -42,34 +42,34 @@
                     <ColumnDefinition Width="*" />
 
                 </Grid.ColumnDefinitions>
-                    <Slider Maximum="60" Minimum="10"  Value="20" ValueChanged="OnSliderValueChanged"
+                    <Slider x:Name="svGarcom" Maximum="60" Minimum="10"  Value="20" ValueChanged="ExibeGarcom"
                              Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                    <Label x:Name="Resp1" Text="Preço por hora (garçom): 20"  VerticalOptions="CenterAndExpand" 
+                    <Label x:Name="vGarcom" Text="Preço por hora (garçom): 20"  VerticalOptions="CenterAndExpand" 
                            Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2"/>
 
-                    <Slider  Maximum="60" Minimum="10" Value="20" ValueChanged="OnSliderValueChanged2" 
+                    <Slider x:Name="svFrita" Maximum="60" Minimum="10" Value="20" ValueChanged="ExibeFrita" 
                              Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
-                    <Label x:Name="Resp2" Text="Preço por hora (fritadeira): 20"   VerticalOptions="CenterAndExpand" 
+                    <Label x:Name="vFrita" Text="Preço por hora (fritadeira): 20"   VerticalOptions="CenterAndExpand" 
                            Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2"/>
 
-                    <Slider Maximum="60" Minimum="10" Value="20" ValueChanged="OnSliderValueChanged3"  
+                    <Slider x:Name="svCopeira" Maximum="60" Minimum="10" Value="20" ValueChanged="ExibeCopeiro"  
                              Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"/>
-                    <Label x:Name="Resp3" Text="Preço por hora (copeira): 20"  VerticalOptions="CenterAndExpand"  
+                    <Label x:Name="vCopeira" Text="Preço por hora (copeira): 20"  VerticalOptions="CenterAndExpand"  
                              Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"/>
                   
                     <Label Text="Possuem uniforme?"  VerticalOptions="CenterAndExpand"  
                              Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" />
-                    <Slider x:Name="uniSlider" Maximum="1" Minimum="0" Value="0" ValueChanged="OnSliderValueChanged4"  
+                    <Slider x:Name="uniSlider" Maximum="1" Minimum="0" Value="0" ValueChanged="OnSliderValueChanged"  
                              Grid.Row="3" Grid.Column="2" />
                     <Label x:Name="uni" Text="Não"  VerticalOptions="CenterAndExpand"  
                              Grid.Row="3" Grid.Column="3" />
                 
-                    <Picker Grid.Row="4" Grid.ColumnSpan="4" x:Name="myPicker2" Title="Material" ItemDisplayBinding="{Binding RetailerName}" />
+                    <Picker Grid.Row="4" Grid.ColumnSpan="4" x:Name="pMaterial" Title="Material" ItemDisplayBinding="{Binding RetailerName}" />
 
                 </Grid>
             <Button x:Name="btLogin" Text="Cadastrar"
                 VerticalOptions="CenterAndExpand"
-                HorizontalOptions="Center" Clicked="OnButtonClicked3"
+                HorizontalOptions="Center" Clicked="OnButtonClicked"
                  />
 
         </StackLayout>
