@@ -15,6 +15,10 @@
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="Center"
                 Clicked="OnButtonClicked" />
+        <Button x:Name="cadastro" Text="Cadastrar"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Center"
+                Clicked="OnButtonClicked2" />
         <Label x:Name="Resp" Text="" 
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" />

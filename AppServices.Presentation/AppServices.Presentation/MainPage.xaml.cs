@@ -18,9 +18,8 @@ namespace AppServices.Presentation
 
 
 
-        async void OnButtonClicked(object sender, EventArgs args)
+         void OnButtonClicked(object sender, EventArgs args)
         {
-            await label.RelRotateTo(360, 1000);
             String login1 = "Meu login";
             String senha1 = "123456";
             String response = "";
@@ -41,6 +40,10 @@ namespace AppServices.Presentation
                 response = "Login " + lg.Text + " não cadastrado.";
             }
             Resp.Text = response;
+        }
+        async void OnButtonClicked2(object sender, EventArgs args)
+        {
+
             await Navigation.PushAsync(new Cadastro());
         }
     }
