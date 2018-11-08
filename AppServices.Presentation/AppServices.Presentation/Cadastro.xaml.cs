@@ -78,7 +78,7 @@ namespace AppServices.Presentation
         void HideandShowSlider(object sender, TextChangedEventArgs e)
         {
             String value = e.NewTextValue;
-            if (value.Trim() != "")
+            if (value.Trim() != "" && value.Trim() != "0")
             {
                 svGarcom.SetValue(IsVisibleProperty, true);
                 vGarcom.SetValue(IsVisibleProperty, true);
@@ -94,7 +94,7 @@ namespace AppServices.Presentation
         void HideandShowSlider2(object sender, TextChangedEventArgs e)
         {
             String value = e.NewTextValue;
-            if (value.Trim() != "")
+            if (value.Trim() != "" && value.Trim() != "0")
             {
                 svFrita.SetValue(IsVisibleProperty, true);
                 vFrita.SetValue(IsVisibleProperty, true);
@@ -111,7 +111,7 @@ namespace AppServices.Presentation
         void HideandShowSlider3(object sender, TextChangedEventArgs e)
         {
             String value = e.NewTextValue;
-            if (value.Trim() != "")
+            if (value.Trim() != "" && value.Trim() != "0")
             {
                 svCopeira.SetValue(IsVisibleProperty, true);
                 vCopeira.SetValue(IsVisibleProperty, true);

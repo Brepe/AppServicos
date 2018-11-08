@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppServices.Presentation.CadastroUser">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label x:Name="label" Text="Cadastro" 
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand" />
+                <Entry x:Name="mail" Placeholder="E-mail" />
+                <Entry  x:Name="pass" IsPassword="true" Placeholder="Senha" TextChanged="ConfirmarSenha"/>
+                <Entry  x:Name="passRe" IsPassword="true" Placeholder="Repetir Senha" TextChanged="ConfirmarSenha" />
+                <Entry x:Name="cpf" Placeholder="CPF" />
+                <Entry x:Name="nome" Placeholder="Nome" />
+                <Entry x:Name="telefone" Placeholder="Telefone (00)0000-0000" />
+
+                <Picker x:Name="pRegiao" Title="Selecione sua região" ItemDisplayBinding="{Binding RetailerName}" />
+
+ 
+                <Button x:Name="btLogin" Text="Cadastrar"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Center" Clicked="OnButtonClicked"
+                 />
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
