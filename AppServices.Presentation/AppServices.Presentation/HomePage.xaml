@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppServices.Presentation.HomePage"
+             Title="Home">
+<ScrollView>
+        <StackLayout BackgroundColor="#a8a8a8">
+        <Label x:Name="label" Text="AppServices" 
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand" />
+        <Entry x:Name="lg" Placeholder="Login" />
+        <Entry  x:Name="pass" IsPassword="true" Placeholder="Senha" />
+
+        <StackLayout BackgroundColor="#cccccc"  Padding="0,5,0,5" Margin="30,10,30,10">
+            
+            <!-- esquerda, superior, direita e inferior -->
+            
+        <StackLayout Padding="0,0,0,10"  >
+            <Label x:Name="user" Text="Usuário" 
+                HorizontalOptions="Center"
+                VerticalOptions="CenterAndExpand" />
+        </StackLayout>
+        <Button x:Name="btLoginUser" Text="Entrar"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Center"
+                Clicked="LoginUser" />
+        <Button x:Name="cadastroUser" Text="Cadastrar"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Center"
+                Clicked="CadastroUser" />
+    </StackLayout>
+
+    <StackLayout BackgroundColor="#cccccc"  Padding="0,5,0,5"  Margin="30,10,30,10">
+    
+            <!-- esquerda, superior, direita e inferior -->
+           
+        <StackLayout Padding="0,0,0,10"  >
+            <Label x:Name="perstador" Text="Prestador de serviço" 
+                HorizontalOptions="Center"
+                VerticalOptions="CenterAndExpand" />
+        </StackLayout>
+        <Button x:Name="btLoginPrestador" Text="Entrar"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Center"
+                Clicked="LoginPrestador" />
+        <Button x:Name="cadastroPrestador" Text="Cadastrar"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Center"
+                Clicked="CadastroPrestador" />
+    </StackLayout>
+
+    <Label x:Name="Resp" Text="" 
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand" />
+</StackLayout>
+</ScrollView>
+</ContentPage>
+
+<!--<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppServices.Presentation.HomePage">
+  <ContentView.Content>
+      <StackLayout>
+          <Label Text="Hello Xamarin.Forms!" />
+    
+      </StackLayout>
+  </ContentView.Content>
+</ContentView>-->

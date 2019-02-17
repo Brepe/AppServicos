@@ -9,9 +9,10 @@
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" />
                 <Entry x:Name="mail" Placeholder="E-mail" />
-                <Entry  x:Name="pass" IsPassword="true" Placeholder="Senha" TextChanged="ConfirmarSenha"/>
-                <Entry  x:Name="passRe" IsPassword="true" Placeholder="Repetir Senha" TextChanged="ConfirmarSenha" />
-            <Entry x:Name="cpf" Placeholder="CPF/CNPJ" />
+                <Entry  x:Name="pass" IsPassword="true" Placeholder="Senha" TextChanged="ConfirmPass"/>
+                <Entry  x:Name="passRe" IsPassword="true" Placeholder="Repetir Senha" TextChanged="ConfirmPass" />
+            <Entry x:Name="cpf" Placeholder="CPF" />
+            <Entry x:Name="cnpj" Placeholder="CNPJ (Para empresas)" />
             <Entry x:Name="nome" Placeholder="Nome" />
             <Entry x:Name="telefone" Placeholder="Telefone (00)0000-0000" />
 
@@ -20,7 +21,7 @@
 
             <StackLayout 
                 VerticalOptions="CenterAndExpand"
-                  HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                  HorizontalOptions="Center" Orientation="Horizontal">
                     <Entry x:Name="qgarcom" HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="HideandShowSlider" Placeholder="Qtd de garçons" />
                     <Entry x:Name="qfritadeira" HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="HideandShowSlider2" Placeholder="Qtd de fritadeiras" />
                     <Entry x:Name="qcopeira" HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="HideandShowSlider3" Placeholder="Qtd de copeiras" />
@@ -42,17 +43,17 @@
                     <ColumnDefinition Width="*" />
 
                 </Grid.ColumnDefinitions>
-                    <Slider x:Name="svGarcom" Maximum="60" Minimum="10"  Value="20" ValueChanged="ExibeGarcom"
+                    <Slider x:Name="svGarcom" Maximum="60" Minimum="10"  Value="20" ValueChanged="DisplayGarcom"
                              Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
                     <Label x:Name="vGarcom" Text="Preço por hora (garçom): 20"  VerticalOptions="CenterAndExpand" 
                            Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2"/>
 
-                    <Slider x:Name="svFrita" Maximum="60" Minimum="10" Value="20" ValueChanged="ExibeFrita" 
+                    <Slider x:Name="svFrita" Maximum="60" Minimum="10" Value="20" ValueChanged="DisplayFrita" 
                              Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
                     <Label x:Name="vFrita" Text="Preço por hora (fritadeira): 20"   VerticalOptions="CenterAndExpand" 
                            Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2"/>
 
-                    <Slider x:Name="svCopeira" Maximum="60" Minimum="10" Value="20" ValueChanged="ExibeCopeiro"  
+                    <Slider x:Name="svCopeira" Maximum="60" Minimum="10" Value="20" ValueChanged="DisplayCopeiro"  
                              Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"/>
                     <Label x:Name="vCopeira" Text="Preço por hora (copeira): 20"  VerticalOptions="CenterAndExpand"  
                              Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"/>

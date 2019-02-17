@@ -23,7 +23,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppServices.Presentation.iO
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppServices.Presentation.UWP", "AppServices.Presentation\AppServices.Presentation.UWP\AppServices.Presentation.UWP.csproj", "{CE7ACC48-4F39-4DD0-93A3-347091E0CE3A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppServices.Presentation", "AppServices.Presentation\AppServices.Presentation\AppServices.Presentation.csproj", "{C0E44B95-8FF0-461D-BE95-05B1968D4905}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppServices.Presentation", "AppServices.Presentation\AppServices.Presentation\AppServices.Presentation.csproj", "{C0E44B95-8FF0-461D-BE95-05B1968D4905}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -238,6 +238,7 @@ Global
 		{C7094C38-2730-44AE-BDB2-E93FBA423356}.AppStore|x64.ActiveCfg = AppStore|iPhone
 		{C7094C38-2730-44AE-BDB2-E93FBA423356}.AppStore|x86.ActiveCfg = AppStore|iPhone
 		{C7094C38-2730-44AE-BDB2-E93FBA423356}.Debug|Any CPU.ActiveCfg = Debug|iPhone
+		{C7094C38-2730-44AE-BDB2-E93FBA423356}.Debug|Any CPU.Build.0 = Debug|iPhone
 		{C7094C38-2730-44AE-BDB2-E93FBA423356}.Debug|ARM.ActiveCfg = Debug|iPhone
 		{C7094C38-2730-44AE-BDB2-E93FBA423356}.Debug|iPhone.ActiveCfg = Debug|iPhone
 		{C7094C38-2730-44AE-BDB2-E93FBA423356}.Debug|iPhone.Build.0 = Debug|iPhone
@@ -290,6 +291,8 @@ Global
 		{CE7ACC48-4F39-4DD0-93A3-347091E0CE3A}.AppStore|x86.Build.0 = Release|x86
 		{CE7ACC48-4F39-4DD0-93A3-347091E0CE3A}.AppStore|x86.Deploy.0 = Release|x86
 		{CE7ACC48-4F39-4DD0-93A3-347091E0CE3A}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{CE7ACC48-4F39-4DD0-93A3-347091E0CE3A}.Debug|Any CPU.Build.0 = Debug|x86
+		{CE7ACC48-4F39-4DD0-93A3-347091E0CE3A}.Debug|Any CPU.Deploy.0 = Debug|x86
 		{CE7ACC48-4F39-4DD0-93A3-347091E0CE3A}.Debug|ARM.ActiveCfg = Debug|ARM
 		{CE7ACC48-4F39-4DD0-93A3-347091E0CE3A}.Debug|ARM.Build.0 = Debug|ARM
 		{CE7ACC48-4F39-4DD0-93A3-347091E0CE3A}.Debug|ARM.Deploy.0 = Debug|ARM

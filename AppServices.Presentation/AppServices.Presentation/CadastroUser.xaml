@@ -23,6 +23,17 @@
                 HorizontalOptions="Center" Clicked="OnButtonClicked"
                  />
 
+
+
+      <ListView x:Name="lvContas" 
+              ItemSelected="lvContas_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding Nome}" 
+                          TextColor="Black"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

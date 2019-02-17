@@ -1,52 +1,95 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:AppServices.Presentation"
              x:Class="AppServices.Presentation.MainPage">
-    <StackLayout BackgroundColor="#a8a8a8">
-        <Label x:Name="label" Text="AppServices" 
+
+    <MasterDetailPage.Master>
+        <ContentPage Title="Menu" BackgroundColor="#e8e8e8">
+
+
+            <StackLayout Orientation="Vertical">
+                <StackLayout BackgroundColor="#e74c3c" HeightRequest="75">
+                    <Label Text="App Services" FontSize="20"
+                     VerticalOptions="CenterAndExpand"
+                     TextColor="White"
+                     HorizontalOptions="Center"/>
+                </StackLayout>
+
+                <ListView x:Name="navigationDrawerList" RowHeight="60"
+                  SeparatorVisibility="None" BackgroundColor="#e8e8e8"
+                  ItemSelected="OnMenuItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout VerticalOptions="FillAndExpand"
+                                   Orientation="Horizontal"
+                                   Padding="20,10,0,10" Spacing="20">
+
+                                   <Label Text="{Binding Title}"
+                                       FontSize="Medium"
+                                       VerticalOptions="Center"
+                                       TextColor="Black"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+
+        </ContentPage>
+    </MasterDetailPage.Master>
+
+    <MasterDetailPage.Detail>
+        <ContentPage />
+    </MasterDetailPage.Detail>
+
+</MasterDetailPage>
+
+
+<!--<StackLayout BackgroundColor="#a8a8a8">
+    <Label x:Name="label" Text="AppServices" 
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" />
-        <Entry x:Name="lg" Placeholder="Login" />
-        <Entry  x:Name="pass" IsPassword="true" Placeholder="Senha" />
-        
-        <StackLayout BackgroundColor="#cccccc"  Padding="0,5,0,5" Margin="30,10,30,10">
-            <!-- esquerda, superior, direita e inferior -->
-            <StackLayout Padding="0,0,0,10"  >
-                <Label x:Name="user" Text="Usuário" 
+    <Entry x:Name="lg" Placeholder="Login" />
+    <Entry  x:Name="pass" IsPassword="true" Placeholder="Senha" />
+
+    <StackLayout BackgroundColor="#cccccc"  Padding="0,5,0,5" Margin="30,10,30,10">
+        --><!-- esquerda, superior, direita e inferior --><!--
+        <StackLayout Padding="0,0,0,10"  >
+            <Label x:Name="user" Text="Usuário" 
                 HorizontalOptions="Center"
                 VerticalOptions="CenterAndExpand" />
-            </StackLayout>
-            <Button x:Name="btLoginUser" Text="Entrar"
+        </StackLayout>
+        <Button x:Name="btLoginUser" Text="Entrar"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="Center"
                 Clicked="LoginUser" />
-            <Button x:Name="cadastroUser" Text="Cadastrar"
+        <Button x:Name="cadastroUser" Text="Cadastrar"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="Center"
                 Clicked="CadastroUser" />
-        </StackLayout>
-        
-        <StackLayout BackgroundColor="#cccccc"  Padding="0,5,0,5"  Margin="30,10,30,10">
-            <!-- esquerda, superior, direita e inferior -->
-            <StackLayout Padding="0,0,0,10"  >
+    </StackLayout>
+
+    <StackLayout BackgroundColor="#cccccc"  Padding="0,5,0,5"  Margin="30,10,30,10">
+        --><!-- esquerda, superior, direita e inferior --><!--
+        <StackLayout Padding="0,0,0,10"  >
             <Label x:Name="perstador" Text="Prestador de serviço" 
                 HorizontalOptions="Center"
                 VerticalOptions="CenterAndExpand" />
-            </StackLayout>
-            <Button x:Name="btLoginPrestador" Text="Entrar"
+        </StackLayout>
+        <Button x:Name="btLoginPrestador" Text="Entrar"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="Center"
                 Clicked="LoginPrestador" />
-            <Button x:Name="cadastroPrestador" Text="Cadastrar"
+        <Button x:Name="cadastroPrestador" Text="Cadastrar"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="Center"
                 Clicked="CadastroPrestador" />
-        </StackLayout>
-
-        <Label x:Name="Resp" Text="" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
     </StackLayout>
 
-</ContentPage>
+    <Label x:Name="Resp" Text="" 
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand" />
+</StackLayout>-->
