@@ -69,7 +69,7 @@ namespace AppServices.Presentation
     async void CadastroPrestador(object sender, EventArgs args)
     {
 
-        await Navigation.PushAsync(new Cadastro());
+        await Navigation.PushAsync(new CadastroPrestador());
     }
     async void CadastroUser(object sender, EventArgs args)
     {

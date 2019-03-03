@@ -23,6 +23,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="CadastroPrestador.xaml.cs">
+      <DependentUpon>CadastroPrestador.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="HomePageInside.xaml.cs">
+      <DependentUpon>HomePageInside.xaml</DependentUpon>
+    </Compile>
     <Compile Update="HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
@@ -32,7 +38,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Cadastro.xaml">
+    <EmbeddedResource Update="CadastroPrestador.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="CadastroUser.xaml">

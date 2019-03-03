@@ -20,7 +20,7 @@ namespace AppServices.Presentation
             // o icone do lado esquerdo e a pagina que vamos abrir
             var pagina1 = new MasterPageItem() { Title = "Home", TargetType = typeof(HomePage) };
             var pagina2 = new MasterPageItem() { Title = "CadastroUsuário", TargetType = typeof(CadastroUser) };
-            var pagina3 = new MasterPageItem() { Title = "CadastroPrestador", TargetType = typeof(Cadastro) };
+            var pagina3 = new MasterPageItem() { Title = "CadastroPrestador", TargetType = typeof(CadastroPrestador) };
             // Adicionando items no menuLista
             menuLista.Add(pagina1);
             menuLista.Add(pagina2);

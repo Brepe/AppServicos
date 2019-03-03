@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppServices.Presentation.Cadastro">
+             x:Class="AppServices.Presentation.CadastroPrestador">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
@@ -11,9 +11,12 @@
                 <Entry x:Name="mail" Placeholder="E-mail" />
                 <Entry  x:Name="pass" IsPassword="true" Placeholder="Senha" TextChanged="ConfirmPass"/>
                 <Entry  x:Name="passRe" IsPassword="true" Placeholder="Repetir Senha" TextChanged="ConfirmPass" />
-            <Entry x:Name="cpf" Placeholder="CPF" />
-            <Entry x:Name="cnpj" Placeholder="CNPJ (Para empresas)" />
-            <Entry x:Name="nome" Placeholder="Nome" />
+                <Entry x:Name="cpf" Placeholder="CPF" />
+                <Entry x:Name="cnpj" Placeholder="CNPJ" />
+                <Label x:Name="labelexplanation" FontAttributes="Italic" FontSize="Micro" Text=" * Digite o CNPJ se for uma empresa, para receber condições especiais." 
+                HorizontalOptions="Center"
+                VerticalOptions="CenterAndExpand" />
+                <Entry x:Name="nome" Placeholder="Nome" />
             <Entry x:Name="telefone" Placeholder="Telefone (00)0000-0000" />
 
             <Picker x:Name="pRegiao" Title="Selecione sua região" ItemDisplayBinding="{Binding RetailerName}" />
@@ -22,9 +25,21 @@
             <StackLayout 
                 VerticalOptions="CenterAndExpand"
                   HorizontalOptions="Center" Orientation="Horizontal">
-                    <Entry x:Name="qgarcom" HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="HideandShowSlider" Placeholder="Qtd de garçons" />
-                    <Entry x:Name="qfritadeira" HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="HideandShowSlider2" Placeholder="Qtd de fritadeiras" />
-                    <Entry x:Name="qcopeira" HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="HideandShowSlider3" Placeholder="Qtd de copeiras" />
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                    <Entry Grid.Row="0" Grid.Column="0" FontSize="Micro" x:Name="qgarcom" HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="HideandShowSlider" Placeholder="Qtd de garçons" />
+                    <Entry Grid.Row="0" Grid.Column="1" FontSize="Micro" x:Name="qfritadeira" HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="HideandShowSlider2" Placeholder="Qtd de fritadeiras" />
+                    <Entry Grid.Row="0" Grid.Column="2" FontSize="Micro" x:Name="qcopeira" HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="HideandShowSlider3" Placeholder="Qtd de copeiras" />
+                    </Grid>
+
                 </StackLayout >
 
                 <Grid>
@@ -65,8 +80,6 @@
                     <Label x:Name="uni" Text="Não"  VerticalOptions="CenterAndExpand"  
                              Grid.Row="3" Grid.Column="3" />
                 
-                    <Picker Grid.Row="4" Grid.ColumnSpan="4" x:Name="pMaterial" Title="Material" ItemDisplayBinding="{Binding RetailerName}" />
-
                 </Grid>
             <Button x:Name="btLogin" Text="Cadastrar"
                 VerticalOptions="CenterAndExpand"

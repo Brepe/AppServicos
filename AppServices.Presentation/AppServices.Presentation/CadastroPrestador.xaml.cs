@@ -11,22 +11,18 @@ using System.Collections.ObjectModel;
 namespace AppServices.Presentation
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class Cadastro : ContentPage
+	public partial class CadastroPrestador : ContentPage
 	{
-		public Cadastro ()
+		public CadastroPrestador()
 
 		{
 
             InitializeComponent();
-            pRegiao.Items.Add("Região 1");
-            pRegiao.Items.Add("Região 2");
-            pRegiao.Items.Add("Região 3");
-            pRegiao.Items.Add("Região 4");
+            pRegiao.Items.Add("Zona sul");
+            pRegiao.Items.Add("Zona norte");
+            pRegiao.Items.Add("Zona oeste");
+            pRegiao.Items.Add("Zona oeste 2");
 
-            pMaterial.Items.Add("Região 1");
-            pMaterial.Items.Add("Região 2");
-            pMaterial.Items.Add("Região 3");
-            pMaterial.Items.Add("Região 4");
             //await Navigation.PopAsync();
             svGarcom.SetValue(IsVisibleProperty, false);
             svFrita.SetValue(IsVisibleProperty, false);
@@ -40,8 +36,17 @@ namespace AppServices.Presentation
 
         async void OnButtonClicked(object sender, EventArgs args)
         {
-            if (FormValid(sender, args) == true){
-                await Navigation.PushAsync(new MainPage());
+            passRe.BackgroundColor = Color.FromHex("#FFF");
+            pass.BackgroundColor = Color.FromHex("#FFF");
+            mail.BackgroundColor = Color.FromHex("#FFF");
+            cpf.BackgroundColor = Color.FromHex("#FFF");
+            cnpj.BackgroundColor = Color.FromHex("#FFF");
+            telefone.BackgroundColor = Color.FromHex("#FFF");
+            nome.BackgroundColor = Color.FromHex("#FFF");
+            if (FormValid(sender, args) == false){
+                await DisplayAlert("Salvo!", "Agora aguarde nossa avaliação do seu cadastro", "Ok");
+
+                await Navigation.PushAsync(new HomePageInside());
             }
             else
             {
@@ -52,34 +57,39 @@ namespace AppServices.Presentation
         Boolean FormValid(object sender, EventArgs args)
         {
             Boolean formisvalid = true;
-            if (passRe.Text != pass.Text)
-            {
-                passRe.BackgroundColor = Color.FromHex("#e09a9a");
-                formisvalid = false;
-            }
-            else if (passRe.Text == ""  || pass.Text == "")
+
+            if (((string.IsNullOrEmpty(pass.Text)) == true) || ((string.IsNullOrEmpty(passRe.Text) == true) || (passRe.Text != pass.Text)||(passRe.Text.Trim() == "" || pass.Text.Trim() == "")))
             {
                 passRe.BackgroundColor = Color.FromHex("#e09a9a");
                 pass.BackgroundColor = Color.FromHex("#e09a9a");
                 formisvalid = false;
             }
-            
-            //if ((mail.Text).Length < 5 && !((mail.Text).Substring(1, 50).Contains("@")))
-            //{
-            //    mail.BackgroundColor = Color.FromHex("#e09a9a");
-            //    formisvalid = false;
-            //}
-            //if (IsCpf(cpf.Text))
-            //{
-            //    cpf.BackgroundColor = Color.FromHex("#e09a9a");
-            //    formisvalid = false;
-            //}
-            if ((nome.Text).Length < 10)
+
+            if (((string.IsNullOrEmpty(mail.Text)) == true) || ((mail.Text.Trim()).Length < 5 && !((mail.Text.Trim()).Contains("@")) && !((mail.Text.Trim()).Contains("."))))
+            {
+                mail.BackgroundColor = Color.FromHex("#e09a9a");
+                formisvalid = false;
+            }
+            if (((string.IsNullOrEmpty(cpf.Text)) == true) || !(IsCpf(cpf.Text)))
+            {
+                
+                cpf.BackgroundColor = Color.FromHex("#e09a9a");
+                formisvalid = false;
+            }
+            if ((string.IsNullOrEmpty(cnpj.Text)) == false)
+            {
+                if (IsCnpj(cnpj.Text))
+                {
+                    cnpj.BackgroundColor = Color.FromHex("#e09a9a");
+                    formisvalid = false;
+                }
+            }
+            if (((string.IsNullOrEmpty(nome.Text)) == true) || ((nome.Text.Trim()).Length < 10))
             {
                 nome.BackgroundColor = Color.FromHex("#e09a9a");
                 formisvalid = false;
             }
-            if ((telefone.Text).Length < 10 )
+            if (((string.IsNullOrEmpty(telefone.Text)) == true) || ((telefone.Text.Trim()).Length < 10))
             {
                 telefone.BackgroundColor = Color.FromHex("#e09a9a");
                 formisvalid = false;
@@ -227,7 +237,41 @@ namespace AppServices.Presentation
 
             return cpf.EndsWith(digito);
         }
-    
 
-}
+
+        public static bool IsCnpj(string cnpj)
+        {
+            int[] multiplicador1 = new int[12] { 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
+            int[] multiplicador2 = new int[13] { 6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
+            int soma;
+            int resto;
+            string digito;
+            string tempCnpj;
+            cnpj = cnpj.Trim();
+            cnpj = cnpj.Replace(".", "").Replace("-", "").Replace("/", "");
+            if (cnpj.Length != 14)
+                return false;
+            tempCnpj = cnpj.Substring(0, 12);
+            soma = 0;
+            for (int i = 0; i < 12; i++)
+                soma += int.Parse(tempCnpj[i].ToString()) * multiplicador1[i];
+            resto = (soma % 11);
+            if (resto < 2)
+                resto = 0;
+            else
+                resto = 11 - resto;
+            digito = resto.ToString();
+            tempCnpj = tempCnpj + digito;
+            soma = 0;
+            for (int i = 0; i < 13; i++)
+                soma += int.Parse(tempCnpj[i].ToString()) * multiplicador2[i];
+            resto = (soma % 11);
+            if (resto < 2)
+                resto = 0;
+            else
+                resto = 11 - resto;
+            digito = digito + resto.ToString();
+            return cnpj.EndsWith(digito);
+        }
+    }
 }
