@@ -9,14 +9,14 @@ using Xamarin.Forms.Xaml;
 using System.Collections.ObjectModel;
 
 namespace AppServices.Presentation
+
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
+    [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class CadastroPrestador : ContentPage
 	{
 		public CadastroPrestador()
 
 		{
-
             InitializeComponent();
             pRegiao.Items.Add("Zona sul");
             pRegiao.Items.Add("Zona norte");
@@ -43,8 +43,15 @@ namespace AppServices.Presentation
             cnpj.BackgroundColor = Color.FromHex("#FFF");
             telefone.BackgroundColor = Color.FromHex("#FFF");
             nome.BackgroundColor = Color.FromHex("#FFF");
-            if (FormValid(sender, args) == false){
-                await DisplayAlert("Salvo!", "Agora aguarde nossa avaliação do seu cadastro", "Ok");
+            if (FormValid(sender, args) == true){
+
+                PrestadorEntity ct = new PrestadorEntity();
+                ct = (new PrestadorEntity() { id_prestador = 1, nome = nome.Text, cpf = Convert.ToInt32(cpf.Text), cnpj = Convert.ToInt32(cnpj.Text),
+                    email = mail.Text, telefone = telefone.Text, senha = passRe.Text, status = 0,
+                    qtd_garcons = 0, qtd_fritadeiras = 0, qtd_copeiros = 0, p_garcons = 0,
+                    p_fritadeiras = 0, p_copeiros = 0});
+                Console.WriteLine($"{ct.nome}.{ct.cpf}.{ct.cnpj}.{ct.email}.{ct.telefone}.{ct.senha}.{ct.status}.{ct.qtd_garcons}.{ct.p_garcons}");
+                await DisplayAlert("Salvo!", nome.Text+", aguarde nossa avaliação do seu cadastro", "Ok");
 
                 await Navigation.PushAsync(new HomePageInside());
             }

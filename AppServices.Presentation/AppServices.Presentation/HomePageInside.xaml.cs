@@ -15,11 +15,12 @@ namespace AppServices.Presentation
 	{
 		public HomePageInside()
 		{
-			InitializeComponent ();
+
+            InitializeComponent ();
             label01.Text += "Fulano!";
             label_total.Text += "3.500,00";
             label_caixa.Text += "250,00";
-
+            
             listView1.ItemsSource = new List<String>
             {
                 "- R$350,00 em 10/04/2019 >",
@@ -34,8 +35,9 @@ namespace AppServices.Presentation
                 "- Nº 00008 em 15/06/2019 >",
                 "- Nº 00003 em 04/07/2019 >"
             };
+
         }
 
 
-}
+    }
 }
