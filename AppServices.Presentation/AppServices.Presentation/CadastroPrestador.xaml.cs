@@ -7,6 +7,7 @@ using AppServices.Presentation;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Collections.ObjectModel;
+using System.Text.RegularExpressions;
 
 namespace AppServices.Presentation
 
@@ -46,14 +47,15 @@ namespace AppServices.Presentation
             if (FormValid(sender, args) == true){
 
                 PrestadorEntity ct = new PrestadorEntity();
-                ct = (new PrestadorEntity() { id_prestador = 1, nome = nome.Text, cpf = Convert.ToInt32(cpf.Text), cnpj = Convert.ToInt32(cnpj.Text),
-                    email = mail.Text, telefone = telefone.Text, senha = passRe.Text, status = 0,
-                    qtd_garcons = 0, qtd_fritadeiras = 0, qtd_copeiros = 0, p_garcons = 0,
-                    p_fritadeiras = 0, p_copeiros = 0});
-                Console.WriteLine($"{ct.nome}.{ct.cpf}.{ct.cnpj}.{ct.email}.{ct.telefone}.{ct.senha}.{ct.status}.{ct.qtd_garcons}.{ct.p_garcons}");
-                await DisplayAlert("Salvo!", nome.Text+", aguarde nossa avaliação do seu cadastro", "Ok");
+                ct = (new PrestadorEntity() { id_prestador = 1, nome = nome.Text, cpf = Convert.ToInt64(cpf.Text),
+                    cnpj = Convert.ToInt64(cnpj.Text), email = mail.Text, telefone = telefone.Text, senha = passRe.Text,
+                    status = 0, qtd_garcons = Convert.ToInt32(vGarcom.Text), qtd_fritadeiras = Convert.ToInt32(vFrita.Text),
+                    qtd_copeiros = Convert.ToInt32(vCopeira.Text), p_garcons = Convert.ToDouble(svGarcom.Value),
+                    p_fritadeiras = Convert.ToDouble(svFrita.Value), p_copeiros =  Convert.ToDouble(svCopeira.Value)});
+                //Console.WriteLine($"{ct.nome}.{ct.cpf}.{ct.cnpj}.{ct.email}.{ct.telefone}.{ct.senha}.{ct.status}.{ct.qtd_garcons}.{ct.p_garcons}");
+                await DisplayAlert("Salvo!", ct.nome + ", aguarde nossa avaliação do seu cadastro", "Ok");
 
-                await Navigation.PushAsync(new HomePageInside());
+                await Navigation.PushAsync(new HomePageInside(125));
             }
             else
             {
@@ -64,6 +66,13 @@ namespace AppServices.Presentation
         Boolean FormValid(object sender, EventArgs args)
         {
             Boolean formisvalid = true;
+
+            vGarcom.Text = ((string.IsNullOrEmpty(vGarcom.Text)) == false) ? vGarcom.Text.Replace("-", "").Replace(".", "") : "0";
+            vFrita.Text = ((string.IsNullOrEmpty(vFrita.Text)) == false) ? vFrita.Text.Replace("-", "").Replace(".", "") : "0";
+            vCopeira.Text = ((string.IsNullOrEmpty(vCopeira.Text)) == false) ? vCopeira.Text.Replace("-", "").Replace(".", "") : "0";
+            svGarcom.Value = ((svGarcom.Value) < 0) ? svGarcom.Value = svGarcom.Value : 0;
+            svFrita.Value = ((svFrita.Value) < 0) ? svFrita.Value = svFrita.Value : 0;
+            svCopeira.Value = ((svCopeira.Value) < 0) ? svCopeira.Value = svCopeira.Value : 0;
 
             if (((string.IsNullOrEmpty(pass.Text)) == true) || ((string.IsNullOrEmpty(passRe.Text) == true) || (passRe.Text != pass.Text)||(passRe.Text.Trim() == "" || pass.Text.Trim() == "")))
             {
@@ -142,6 +151,7 @@ namespace AppServices.Presentation
 
         void HideandShowSlider(object sender, TextChangedEventArgs e)
         {
+            OnlyNumbers(sender, e);
             String value = e.NewTextValue;
             if (value.Trim() != "" && value.Trim() != "0")
             {
@@ -158,6 +168,7 @@ namespace AppServices.Presentation
         }
         void HideandShowSlider2(object sender, TextChangedEventArgs e)
         {
+            OnlyNumbers(sender, e);
             String value = e.NewTextValue;
             if (value.Trim() != "" && value.Trim() != "0")
             {
@@ -175,6 +186,7 @@ namespace AppServices.Presentation
         }
         void HideandShowSlider3(object sender, TextChangedEventArgs e)
         {
+            OnlyNumbers(sender, e);
             String value = e.NewTextValue;
             if (value.Trim() != "" && value.Trim() != "0")
             {
@@ -204,6 +216,17 @@ namespace AppServices.Presentation
                 passRe.BackgroundColor = Color.FromHex("#ffffff");
 
             }
+        }
+        // --------------------------- Só deixa números serem digitados ----------------------------------//
+        void OnlyNumbers(object sender, TextChangedEventArgs e)
+        {
+            var pattern = @"[^0-9]+?";
+            cpf.Text = ((string.IsNullOrEmpty(cpf.Text)) == false) ? Regex.Replace(cpf.Text, pattern, "") : "";
+            cnpj.Text = ((string.IsNullOrEmpty(cnpj.Text)) == false) ? Regex.Replace(cnpj.Text, pattern, "") : "";
+            vGarcom.Text = ((string.IsNullOrEmpty(vGarcom.Text)) == false) ? Regex.Replace(vGarcom.Text, pattern, "") : "";
+            vFrita.Text = ((string.IsNullOrEmpty(vFrita.Text)) == false) ? Regex.Replace(vFrita.Text, pattern, "") : "";
+            vCopeira.Text = ((string.IsNullOrEmpty(vCopeira.Text)) == false) ? Regex.Replace(vCopeira.Text, pattern, "") : "";
+
         }
 
         public static bool IsCpf(string cpf)

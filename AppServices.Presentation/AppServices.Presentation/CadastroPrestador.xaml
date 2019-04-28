@@ -11,8 +11,8 @@
                 <Entry x:Name="mail" Placeholder="E-mail" />
                 <Entry  x:Name="pass" IsPassword="true" Placeholder="Senha" TextChanged="ConfirmPass"/>
                 <Entry  x:Name="passRe" IsPassword="true" Placeholder="Repetir Senha" TextChanged="ConfirmPass" />
-                <Entry x:Name="cpf" Placeholder="CPF" />
-                <Entry x:Name="cnpj" Placeholder="CNPJ" />
+                <Entry x:Name="cpf" Placeholder="CPF" TextChanged="OnlyNumbers"/>
+                <Entry x:Name="cnpj" Placeholder="CNPJ" TextChanged="OnlyNumbers"/>
                 <Label x:Name="labelexplanation" FontAttributes="Italic" FontSize="Micro" Text=" * Digite o CNPJ se for uma empresa, para receber condições especiais." 
                 HorizontalOptions="Center"
                 VerticalOptions="CenterAndExpand" />

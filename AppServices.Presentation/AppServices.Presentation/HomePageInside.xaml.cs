@@ -13,9 +13,9 @@ namespace AppServices.Presentation
     //	public partial class HomePage : ContentView
     public partial class HomePageInside : ContentPage
 	{
-		public HomePageInside()
+		public HomePageInside(int ct)
 		{
-
+            Console.WriteLine(ct);
             InitializeComponent ();
             label01.Text += "Fulano!";
             label_total.Text += "3.500,00";
